@@ -50,6 +50,7 @@ function DnD(canvas, interactor) {
 		this.debug("mouse up");
 		
 		this.pression = false;
+		///
 		
 		
 		
