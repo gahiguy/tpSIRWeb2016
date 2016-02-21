@@ -56,7 +56,9 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionEnd=function(DnD){
 		drawing.addForm(this.currentshape);
 		drawing.paint(ctx);
+		updateShapeList(drawing.tabForm);
 	}.bind(this);
+	
 	
 };
 
