@@ -35,6 +35,7 @@ function Rectangle(x, y, largeur, hauteur, epaisseur , couleur ){
 	this.largeur = largeur;
 	this.hauteur = hauteur;
 	
+	//utilisé pour afficher le type de la forme et ses coordonnées
 	this.nom = function(){
 		return 'Rectangle:'+this.x+','+this.y+','+this.largeur+','+this.hauteur;
 	}.bind(this);
@@ -51,6 +52,7 @@ function Ligne(x1,y1,x2,y2,epaisseur,couleur){
 	this.y1 = y1;
 	this.y2 = y2;
 	
+	//utilisé pour afficher le type de la forme et ses coordonnées
 	this.nom = function(){
 		return 'Ligne:'+this.x1+','+this.y1+','+this.x2+','+this.y2+','+this.couleur+','+this.epaisseur;
 	}.bind(this);

@@ -23,7 +23,9 @@ function DnD(canvas, interactor) {
 		this.posInitY = res.y;
 		//je suis en mode click
 		this.pression = true;
+		
 		interactor.onInteractionStart(this);
+		
 		//affiche les coordonnées et le mode 
 		this.debug("mouse down");
 		
