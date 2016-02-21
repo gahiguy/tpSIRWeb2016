@@ -9,9 +9,9 @@ function DnD(canvas, interactor) {
 	this.posFinY = 0;
 	this.pression = false;
 	
-	
+	//fonction pour afficher les coordonnées "eventText = la fonction gerant les evenements" 
 	this.debug  = function (eventText) {
-		console.log(eventText, this.posInit1, this.posInit2, this.posFin1, this.posFin2, this.pression);
+		console.log(eventText, this.posInitX, this.posInitY, this.posFinX, this.posFinY, this.pression);
 	}.bind(this);
 
 	// Developper les 3 fonctions gérant les événements
@@ -23,8 +23,10 @@ function DnD(canvas, interactor) {
 		this.posInitY = res.y;
 		//je suis en mode click
 		this.pression = true;
+		interactor.onInteractionStart(this);
 		//affiche les coordonnées et le mode 
 		this.debug("mouse down");
+		
 		
 	}.bind(this)
 	//fonctiondeplacement
@@ -32,9 +34,9 @@ function DnD(canvas, interactor) {
 		if(this.pression){
 			var res = getMousePosition(canvas, evt) ;
 			//recuperer les coordonnées du curseur
-			this.posFin1 = res.x;
-			this.posFin2 = res.y;
-		
+			this.posFinX = res.x;
+			this.posFinY = res.y;
+			interactor.onInteractionUpdate(this);
 			//affiche les coordonnées 
 		this.debug("mouse move");
 		}
@@ -45,7 +47,7 @@ function DnD(canvas, interactor) {
 		
 		var res = getMousePosition(canvas, evt) ;
 		
-		
+		interactor.onInteractionEnd(this);
 		//affiche les coordonnées et le mode 
 		this.debug("mouse up");
 		
