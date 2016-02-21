@@ -63,12 +63,23 @@ function Pencil(ctx, drawing, canvas) {
 	//on affiche la nouvelle forme créée et on l'ajoute dans la liste des formes
 	this.onInteractionEnd=function(DnD){
 		
-			drawing.addForm(this.currentshape);
-			drawing.paint(ctx);
-			//if((this.currentshape.largeur !==0 && this.currentshape.largeur !==0) {
-			updateShapeList(drawing.tabForm);
 			
-			//}
+			if(butRect.checked) {
+				//ça dessine/enregistre que quand le rectangle n'est pas nul(un clic = null)
+				if(this.currentshape.largeur !==0 && this.currentshape.largeur !==0) {
+					drawing.addForm(this.currentshape);
+					drawing.paint(ctx);
+					updateShapeList(drawing.tabForm);
+				}
+			}else if(butLine.checked){
+				//ça dessine/enregistre que quand la ligne n'est pas nulle (un clic = null)
+				if(DnD.posFinX !== DnD.posInitX && DnD.posFinY !== DnD.posInitY){
+					drawing.addForm(this.currentshape);
+					drawing.paint(ctx);
+					updateShapeList(drawing.tabForm);
+				}
+			}
+			
 	}.bind(this);
 	
 	
